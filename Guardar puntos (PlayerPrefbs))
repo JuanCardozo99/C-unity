@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespce myGame.name.core.data
+{
+	public class scriptPuntos : MonoBehaviour
+	{
+    
+		private int score;
+    
+		void Start()
+		{
+			InvokeRepeating ("SaveScore", 5, 2);
+        
+		}
+
+		void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				AddScore();
+			}
+		}
+		private void AddScore()
+		{
+			score++;
+			Debug.Log(score);
+		}
+		private void SaveScore()
+		{
+			PlayerPrefs.SetInt("puntosGuardados", score);
+			PlayerPrefs.Save();
+			Debug.Log("score saved successfully");
+		}
+	}		
+}
