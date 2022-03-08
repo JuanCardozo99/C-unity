@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace gamee.name.objects
+{
+    public class EnemyManager : MonoBehaviour
+    {
+        private int randm;
+
+        private void Start() 
+        {
+            InvokeRepeating("Spawner", 2, 2);
+            
+        }
+
+        private void Spawner()
+        {
+            randm = Random.Range(1, 5);
+            switch (randm)
+            {
+                case 1:
+                GameObject Cub = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                Cub.name = "Cub";
+                Cub.transform.position=new Vector3(Random.Range(-1, 1), 0f, Random.Range(-1, 1));
+                Cub.AddComponent<Cube>();
+                break;
+                case 2:
+                GameObject Sph = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                Sph.name = "Spher";
+                Sph.transform.position=new Vector3(Random.Range(-3, 3), 0f, Random.Range(-3, 3));
+                Sph.AddComponent<Sphere>();
+                break;
+                case 3:
+                GameObject Cyl = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                Cyl.name = "Cyl";
+                Cyl.transform.position=new Vector3(Random.Range(-5, 5), 0f, Random.Range(-5, 5));
+                Cyl.AddComponent<Cylinder>();
+                break;
+                case 4:
+                GameObject Cap = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+                Cap.name = "Cap";
+                Cap.transform.position=new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7));
+                Cap.AddComponent<Capsule>();
+                break;
+                
+            }
+            
+
+        }
+
+
+    }
+}
+
