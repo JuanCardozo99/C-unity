@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AtoMoveEntity : MonoBehaviour
+{
+    private Vector3 target;
+    private Terrain myTerrain;
+    private float speed;
+    void Start()
+    {
+        if(speed < 0)
+        {
+            speed = Random.Range(2.0f, 4.0f);
+        }
+        myTerrain=Terrain.activeTerrain;
+        target=ReturnTarget();
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(transform.position != target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        }
+        else
+        {
+            target = ReturnTarget();
+        }
+    }
+
+    Vector3 ReturnTarget()
+    {
+        float x = Random.Range(transform.localScale.x/2, myTerrain.terrainData.size.x - transform.localScale.x/2);
+        float z = Random.Range(transform.localScale.z/2, myTerrain.terrainData.size.z - transform.localScale.z/2);
+
+        Vector3 move=new Vector3(x, transform.localScale.y/2, z);
+        return move;
+    }
+
+    private void OnCollisionEnter(Collision other) 
+    {
+        target=ReturnTarget();
+    }
+}
