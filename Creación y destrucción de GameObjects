@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CreateDestruction : Monobehavior
+{
+	public GameObject objToCreate;	//prefab object
+	public GameObject position;		// GameObject of hierarchy (create new empty)
+	public GameObject createObj;
+	
+	void Start()
+	{
+		Create();
+	}
+	
+	private void Create()
+	{
+		createObj = Instantiate(objToCreate, position.transform);
+		
+		Invoke("Destroy", 2f);
+		
+	}
+	
+	private void Destroy()
+	{
+		Destroy(createObj);
+		Invoke("createObj", 2f);
+		
+	}
+{
