@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace gamee.name.objects
+namespace gamee.name.primitives
 {
     public class EnemyManager : MonoBehaviour
     {
@@ -23,25 +23,25 @@ namespace gamee.name.objects
                 GameObject Cub = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 Cub.name = "Cub";
                 Cub.transform.position=new Vector3(Random.Range(-1, 1), 0f, Random.Range(-1, 1));
-                Cub.AddComponent<Cube>();
+                Cub.AddComponent<Cube_script>();
                 break;
                 case 2:
                 GameObject Sph = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 Sph.name = "Spher";
                 Sph.transform.position=new Vector3(Random.Range(-3, 3), 0f, Random.Range(-3, 3));
-                Sph.AddComponent<Sphere>();
+                Sph.AddComponent<Sphere_script>();
                 break;
                 case 3:
                 GameObject Cyl = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
                 Cyl.name = "Cyl";
                 Cyl.transform.position=new Vector3(Random.Range(-5, 5), 0f, Random.Range(-5, 5));
-                Cyl.AddComponent<Cylinder>();
+                Cyl.AddComponent<Cylinder_script>();
                 break;
                 case 4:
                 GameObject Cap = GameObject.CreatePrimitive(PrimitiveType.Capsule);
                 Cap.name = "Cap";
                 Cap.transform.position=new Vector3(Random.Range(-7, 7), 0f, Random.Range(-7, 7));
-                Cap.AddComponent<Capsule>();
+                Cap.AddComponent<Capsule_script>();
                 break;
                 
             }
