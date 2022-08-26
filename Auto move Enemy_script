@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtoMoveEntity : MonoBehaviour
+public class AutoMoveEntity : MonoBehaviour
 {
     private Vector3 target;
     private Terrain myTerrain;
